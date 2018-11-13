@@ -1,0 +1,98 @@
+body {
+	background: url("../img/line.7bbff6548817.jpg");
+	background-size: cover;
+}
+.navbar-brand {
+	position: relative;
+	text-align: center;
+	font-family: cursive;
+	font-size: 2em;
+}
+#logout {
+	margin-right: 30px;
+	/*text-align: center;*/
+}
+#pos {
+	width: 100px;
+	text-align: center;
+}
+.btn-info {
+	border-radius: 15px;
+}
+.btn-warning {
+	border-radius: 15px;
+}
+.long-btn {
+	width: 100px; !important;
+	float: right; !important;
+}
+.jumbotron {
+	background-size: cover;
+	height: 350px;
+	/*min-height: 350px;*/
+}
+.photo-home {
+	width: 210px;
+	height: 210px;
+	margin: 10px auto;
+}
+.photo {
+	width: 150px;
+	height: 150px;
+	margin: 14px auto;
+}
+.user-round {
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-right: 10px;
+	border-radius: 50%;
+}
+.posthead {
+	margin-top: 10px;
+	line-height: 1.5;
+}
+.edit {
+	float: right;
+	background-color: transparent;
+	width: 5%;
+}
+.delete {
+	float: right;
+	background-color: transparent;
+}
+.time {
+	font-size: 0.9em;
+	text-indent: 10px;
+}
+.blog-footer {
+	padding: 5px 0;
+	background-color: #DDDDDD;
+	text-align: center;
+	border-top: 2px;
+}
+.favorite {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+.self_intro {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
+.comment {
+	background: #DDDDDD;
+	display: none;
+}
+.comment-photo {
+	width: 35px;
+	height: 35px;
+}
+.comment form {
+	width: 100%;
+}

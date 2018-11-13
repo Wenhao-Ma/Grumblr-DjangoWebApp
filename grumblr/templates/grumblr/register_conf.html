@@ -1,0 +1,14 @@
+{% extends "grumblr/base_login.html" %}
+
+{% block title %}Confirm{% endblock %}
+{% block right %}
+<div id="login" class="container">
+    <p>{{ text }}</p>
+    <p>{{ error }}</p>
+</div>
+{% if text %}
+ <div id="back" class="container">
+    <a href="{% url 'home' username %}" class="btn btn-primary">Complete</a>
+</div>
+{% endif %}
+{% endblock %}

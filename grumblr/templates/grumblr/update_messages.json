@@ -1,0 +1,14 @@
+{
+  "messages": [
+  {% for message in messages %}
+    {
+      "id": "{{ message.id }}",
+      "content": "{{ message.content }}",
+      "username": "{{ message.user_profile.user.username }}",
+      "time": "{{ message.time }}"
+    }
+  {% if not forloop.last %}, {% endif %}
+  {% endfor%} ],
+  "max_time": "{{ max_time|date:"c" }}",
+  "user": "{{ user }}"
+}

@@ -1,0 +1,34 @@
+{% extends "grumblr/base_login.html" %}
+
+{% block title %}Login{% endblock %}
+{% block right %}
+<div id="login" class="container">
+    <h1>Share Your Life</h1>
+    <form action="{% url 'login' %}" method="POST">
+        {% for field in form.visible_fields %}
+            <div class="form-group">
+                {{ field }}
+            </div>
+        {% endfor %}
+        {% if errors %}
+            <ul>
+                {% for error in errors %}
+                    <li class="text-danger">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="form-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-info">Login</button>
+            <div class="ml-3 checkbox">
+                <label><input class="form-check-input" type="checkbox"> Remember me</label>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="register">
+    <h4>Join us now.</h4>
+    <a id="reg" class="btn btn-info mt-3" role="button" href="{% url 'register' %}">Sign Up</a>
+</div>
+{% endblock %}

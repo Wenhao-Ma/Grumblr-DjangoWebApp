@@ -1,0 +1,73 @@
+{% extends "grumblr/base.html" %}
+
+{% block title %}Edit{% endblock %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "grumblr/css/edit_profile.css" %}">
+{% endblock %}
+
+{% block body %}
+<div class="container card bg-light mt-3">
+    <form enctype="multipart/form-data" id="edit" method="POST" action="{% url 'edit' username %}">
+        {% csrf_token %}
+        {% for field in profile_form.visible_fields %}
+            {% if field.name == 'age' %}
+                {% for field2 in user_form.visible_fields %}
+                    {% if field2.name == 'first_name' %}
+                        <div class="form-row">
+                        <div class="form-group col-md-4">
+                            {{ field2.label_tag }}
+                            {{ field2 }}
+                            {% if field2.errors %}
+                                <small class="text-danger">{{ field2.errors }}</small>
+                            {% endif %}
+                        </div>
+                    {% elif field2.name == 'last_name' %}
+                        <div class="form-group col-md-4">
+                            {{ field2.label_tag }}
+                            {{ field2 }}
+                            {% if field2.errors %}
+                                <small class="text-danger">{{ field2.errors }}</small>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <div class="form-group col-md-4">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <small class="text-danger">{{ field.errors }}</small>
+                    {% endif %}
+                </div>
+                </div>
+                {% for field2 in user_form.visible_fields %}
+                    {% if field2.name == 'email' %}
+                        <div class="form-group">
+                            {{ field2.label_tag }}
+                            {{ field2 }}
+                            {% if field2.errors %}
+                                <small class="text-danger">{{ field2.errors }}</small>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <small class="text-danger">{{ field.errors }}</small>
+                    {% endif %}
+                </div>
+            {% endif %}
+            {% if field.name == 'jumbotron_content' %}
+                <hr>
+            {% endif %}
+        {% endfor %}
+        <input type="submit" class="btn btn-primary mb-3" value="Save">
+        <a href="{% url 'home' username %}" class="btn btn-danger mb-3 ml-5">Cancel</a>
+        <a href="{% url 'reset' %}" class="btn btn-warning float-right">Reset Password</a>
+    </form>
+</div>
+{% endblock %}

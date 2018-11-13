@@ -1,0 +1,51 @@
+{% extends "grumblr/base_profile.html" %}
+
+{% block title %}Global{% endblock %}
+
+{% block brand_url %}{% url 'global' %}{% endblock %}
+
+{% block active_global %}active{% endblock %}
+
+{% block home_url %}{% url 'home' user_profile.user.username %}{% endblock %}
+
+{% block jumbotron %}{% endblock %}
+
+{% block margin %}mt-5 pt-5{% endblock %}
+
+{% block user_photo %}
+<div class="text-center">
+    <img class="photo" src="{% url 'photo' user_profile.user.username %}">
+    <h4 class="mb-4"><b>{{ user_profile.user.username }}</b></h4>
+</div>
+{% endblock %}
+
+{#{% block posts %}#}
+{#{% if messages %}#}
+{#    {% for msg in messages %}#}
+{#        <div id="post-{{ msg.id }}">#}
+{#            <div class="container" id="post-{{ msg.id }}">#}
+{#                <p class="posthead">#}
+{#                    <a href="{% url 'home' msg.user_profile.user.username %}">#}
+{#                        <img src="{% url 'photo' msg.user_profile.user.username %}" class="user-round">#}
+{#                    </a>#}
+{#                    <a class="btn delete" href="{% url 'fav' msg.id %}">#}
+{#                        <i class="far fa-star" title="Add to your favorite"></i>#}
+{#                    </a>#}
+{#                    <a class="text-body" href="{% url 'home' msg.user_profile.user.username %}"><b>{{ msg.user_profile.user.username }}</b></a><br>#}
+{#                    <i class="time">{{ msg.time }}</i><br>#}
+{#                </p>#}
+{#                <p>{{ msg.content }}</p>#}
+{#            </div>#}
+{#            <hr>#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#{% endif %}#}
+{#{% endblock %}#}
+
+{% block modal_url %}{% url 'global' %}{% endblock %}
+
+{% block js %}
+    {% load static %}
+    <script src="{% static "grumblr/js/global.js" %}" type="text/javascript"></script>
+    <script src="{% static "grumblr/js/comment.js" %}" type="text/javascript"></script>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "grumblr/base_login.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block right %}
+{% if form.non_field_errors %}
+    <ul class="position-absolute text-danger mt-3">
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<div id="register2" class="container">
+    <h1>Register</h1>
+    <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+            <div class="form-group">
+                {{ field }}
+                {% if field.name == 'password' %}
+                    <small id="emailHelp" class="form-text text-muted">Password length should be between 6 and 20.</small>
+                {% endif %}
+                <small class="text-danger">{{ field.errors }}</small>
+            </div>
+        {% endfor %}
+        <div id ="submit">
+            <button type="submit" id="sub" class="btn btn-info">Create New Account</button>
+        </div>
+    </form>
+</div>
+<div id="back" class="container">
+    <a href="{% url 'logout' %}" class="btn btn-secondary">Go Back</a>
+</div>
+{% endblock %}

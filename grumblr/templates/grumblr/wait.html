@@ -1,0 +1,12 @@
+{% extends "grumblr/base_login.html" %}
+
+{% block title %}Wait{% endblock %}
+{% block right %}
+<div id="login" class="container">
+    <p>{{ text }}</p>
+</div>
+
+<div id="back" class="container">
+    <a href="{% url 'login' %}" class="btn btn-secondary">Go Back</a>
+</div>
+{% endblock %}
