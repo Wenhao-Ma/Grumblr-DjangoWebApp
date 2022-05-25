@@ -147,7 +147,7 @@ public==1.0.3
 pyasn1==0.4.4
 pycparser==2.18
 Pygments==2.2.0
-PyJWT==1.6.4
+PyJWT==2.4.0
 python-dateutil==2.7.3
 python-dotenv==0.9.1
 python-social-auth==0.3.6
